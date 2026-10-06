@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Trained policies under models/ are tracked so a clone can replay them.
+
+# Generated at launch by src/transfer/gazebo_bridge.py
+assets/unitree_a1/a1_gazebo.sdf
+
+# Logs and results
+results/
+logs/
+tensorboard/
+wandb/
+!results/.gitkeep
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Build debris
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/

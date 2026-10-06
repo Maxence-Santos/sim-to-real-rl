@@ -1,0 +1,29 @@
+# Unitree A1, MuJoCo Menagerie. The standing pose is the model's "home" keyframe
+# (hip 0, thigh 0.9, calf -1.8). Position actuators in the MJCF use kp=100.
+
+name: unitree_a1
+scene: assets/unitree_a1/scene.xml
+
+control_dt: 0.02
+action_scale: 0.25
+episode_steps: 1000
+reset_joint_noise: 0.02
+fall_height: 0.15
+fall_gravity_z: -0.4
+
+# Body-frame command sampled at the start of each episode.
+command:
+  vx: [0.3, 0.8]
+  vy: [0.0, 0.0]
+  yaw: [0.0, 0.0]
+
+# `alive` keeps a clumsy but upright step positive, so ending the episode
+# early is worse than staying up. Energy stays a small penalty.
+rewards:
+  alive: 1.0
+  velocity: 1.5
+  yaw: 0.5
+  stability: 0.3
+  energy: 0.0005
+  action_rate: 0.01
+  fall: 2.0

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sim-to-real-rl"
+version = "0.1.0"
+description = "Quadruped locomotion trained with PPO in MuJoCo on CPU PyTorch, then compared in Gazebo."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Maxence", email = "maxence@example.com"}
+]
+dependencies = [
+    "gymnasium>=0.29.0",
+    "mujoco>=3.0.0",
+    "stable-baselines3>=2.0.0",
+    "tensorboard>=2.14.0",
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "onnx>=1.14.0",
+    "onnxruntime>=1.20.0",
+    "matplotlib>=3.8.0",
+]
+
+# torch is intentionally absent. On Linux, `pip install torch` resolves the CUDA wheel.
+# Install the CPU build first, from scripts/install_cpu.sh.
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

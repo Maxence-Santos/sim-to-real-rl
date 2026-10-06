@@ -1,0 +1,26 @@
+# Domain Randomization Settings
+
+randomize_mass:
+  enabled: true
+  range: [-0.2, 0.2]  # +/- 20% variation
+
+randomize_friction:
+  enabled: true
+  range: [0.5, 1.5]   # Scaling factor for friction
+
+randomize_damping:
+  enabled: true
+  range: [0.75, 1.25] # +/- 25% variation on joint damping
+
+action_latency:
+  enabled: true
+  # At 50 Hz this rounds to 1 or 2 control steps. A delay of 0 is not sampled.
+  range_ms: [10, 40]
+
+sensor_noise:
+  enabled: true
+  imu_noise_std: 0.05
+  joint_pos_std: 0.02
+  joint_vel_std: 0.05
+
+# Flat floor only. Terrain roughness is not applied in v1.

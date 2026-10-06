@@ -1,0 +1,14 @@
+# Evaluation Configuration
+
+n_episodes: 100
+deterministic: true
+render: false
+
+metrics_to_collect:
+  - success_rate
+  - average_reward
+  - energy_efficiency
+  - forward_velocity_error
+  - survival_time
+
+seed: 42
